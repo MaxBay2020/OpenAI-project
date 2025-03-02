@@ -11,10 +11,18 @@ function App() {
 
   const fetchData = async () => {
       const response = await axios.post('https://api.openai.com/v1/completions', {
-        model: 'gpt-3.5-turbo-instruct',
-        prompt: 'hello are you Grok3?',
-        // max_tokens is optional
-        max_tokens: 7
+        model: 'gpt-4',
+        message: [
+            {
+                role: 'user',
+                content: 'Hello'
+            },
+            {
+                role: 'user',
+                content: 'How are you?'
+            }
+        ]
+
       }, {
         headers: {
           'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_KEY}`,
@@ -23,8 +31,6 @@ function App() {
       })
 
       console.log(response)
-
-
     }
 
   useEffect(() => {
