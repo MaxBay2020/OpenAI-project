@@ -19,7 +19,7 @@ function App() {
         headers: {
           'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_KEY}`,
           'Content-Type': 'application/json',
-        },git
+        },
       })
 
       console.log(response)
